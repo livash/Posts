@@ -1,0 +1,36 @@
+<h1>Create new Post</h1>
+
+<form action="<%= posts_url %>" method="post">
+	<input type="hidden"
+					name="authenticity_token"
+					value="<%= form_authenticity_token %>">
+
+	<label for="post_title">Title</label>
+	<input type="text" name="post[title]"
+					value="<%= @post.title %>" id="post_title">
+	<br>
+
+	<textarea name="post[body]" rows="8" cols="40"><%= @post.body %></textarea>
+	<p>Input Links</p>
+	<br>
+	<% 3.times do |i| %>
+		<label for="link_address_<%= i %>">Link <%= i + 1 %></label>
+		<input type="text" name="post[links_attributes][<%= i %>][url_address]"
+						value="<%= @post.title %>" id="link_address_<%= i %>">
+		<br>
+	<% end %>
+
+	<% current_user.friend_circles.each do |circle| %>
+
+		<label for="post_circle_ids_<%= circle.id %>"><%= circle.name %></label>
+		<input type="checkbox"
+					name="post[circle_ids][]"
+					value="<%= circle.id %>"
+					id="post_circle_ids_<%= circle.id %>">
+
+
+	<% end %>
+
+	<p><input type="submit" value="Submit Post"></p>
+</form>
+

@@ -1,0 +1,10 @@
+<h1>Form to create a new circle:</h1>
+<%=current_user.session_token%>
+<%=session[:session_token] %>
+
+<form action="<%= friend_circles_url %>" method="post">
+
+	<%= render :partial => "form" %>
+
+	<p><input type="submit" value="Create Circle"></p>
+</form>

@@ -1,0 +1,15 @@
+<h1>Post Info</h1>
+Title: <%= @post.title %>
+<br>
+ <%= @post.body %>
+<br>
+Links:
+<% @post.links.each do |link| %>
+	<%= link.url_address %>
+<% end %>
+
+<br>
+<% @post.circles.each do |circle| %>
+	<%= circle.name %>
+<% end %>
+

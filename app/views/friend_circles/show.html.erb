@@ -1,0 +1,11 @@
+<h1><%= current_user.name.capitalize %></h1>
+
+<% current_user.friend_circles.each do |circle| %>
+	<%= circle.name %>
+	<br>
+	<br>
+	<% circle.friends.each do |friend| %>
+		<%= friend.name.capitalize %>
+		<br>
+	<% end %>
+<% end %>
