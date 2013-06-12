@@ -22,11 +22,13 @@ class FriendCirclesController < ApplicationController
   end
 
   def edit
-    @circle = FriendCircles.find(params[:id])
+    @users = User.all
+    @circle = FriendCircle.find(params[:id])
   end
 
   def update
-    if @circle = FriendCircles.update_attributes(params[:friend_circle])
+    @circle = FriendCircle.find(params[:id])
+    if @circle.update_attributes(params[:friend_circle])
       render :show
     else
       redirect_to new_friend_circle_url

@@ -1,5 +1,7 @@
-<form action="<%= friend_circles_url %>" method="post">
-	<input type="hidden", name"_method", value="put">
+<form action="<%= friend_circle_url(@circle) %>" method="post">
+	<input type="hidden" name="_method" value="put">
+
+
 
 	<%= render :partial => 'form'%>
 

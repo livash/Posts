@@ -4,7 +4,7 @@
 					value="<%= form_authenticity_token %>">
 
 	<label for="circle_name">Circle name:</label>
-	<input type="text" name="friend_circle[name]" value="" id="circle_name">
+	<input type="text" name="friend_circle[name]" value="<%= @circle.name %>" id="circle_name">
 	<br>
 	<% @users.each do |user| %>
 		<br>
